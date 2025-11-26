@@ -36,9 +36,15 @@ ENV/
 .env.production
 
 # Output files (models and results)
-output/
-*.pkl
-*.csv
+# Allow essential files for deployment
+!output/
+!output/faiss_medical_index/
+!output/preprocessed_chunks.pkl
+!output/rag_config.pkl
+# Block large evaluation files
+output/evaluation_results.csv
+output/evaluation_results.pkl
+output/evaluation_report.md
 *.h5
 *.pt
 *.bin
@@ -48,11 +54,14 @@ data/*.csv
 data/*.txt
 data/*.json
 data/*.parquet
+# Allow small data files if needed
+!data/README.md
 
-# FAISS index
-faiss_medical_index/
-*.faiss
-*.index
+# FAISS index - KEEP FOR DEPLOYMENT
+# faiss_medical_index/ is now allowed (commented out)
+# Individual FAISS files in root are blocked
+# *.faiss
+# *.index
 
 # Logs
 *.log

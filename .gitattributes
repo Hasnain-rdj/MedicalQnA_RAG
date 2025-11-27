@@ -1,0 +1,2 @@
+output/faiss_medical_index/*.faiss filter=lfs diff=lfs merge=lfs -text
+output/faiss_medical_index/*.pkl filter=lfs diff=lfs merge=lfs -text
